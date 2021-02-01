@@ -12,7 +12,6 @@ public class MainActivity extends AppCompatActivity {
 
     Button cong, tru, nhan, chia;
     EditText soA, soB, result;
-    int kq = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,15 +42,6 @@ public class MainActivity extends AppCompatActivity {
                     result.setText(Double.parseDouble(soA.getText().toString()) + Double.parseDouble(soB.getText().toString()) + "");
             }
         });
-        tru.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if (soA.getText().toString().equals("") || soB.getText().toString().equals("")) {
-                    Toast.makeText(MainActivity.this, "Khong hop le", Toast.LENGTH_SHORT).show();
-                } else
-                    result.setText(Double.parseDouble(soA.getText().toString()) - Double.parseDouble(soB.getText().toString()) + "");
-            }
-        });
         nhan.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -61,15 +51,22 @@ public class MainActivity extends AppCompatActivity {
                     result.setText(Double.parseDouble(soA.getText().toString()) * Double.parseDouble(soB.getText().toString()) + "");
             }
         });
-        chia.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if (soA.getText().toString().equals("") || soB.getText().toString().equals("")) {
-                    Toast.makeText(MainActivity.this, "Khong hop le", Toast.LENGTH_SHORT).show();
-                } else
-                    result.setText(Double.parseDouble(soA.getText().toString()) / Double.parseDouble(soB.getText().toString()) + "");
-            }
-        });
 
+
+    }
+
+    public void phepChia(View view) {
+        if (soA.getText().toString().equals("") || soB.getText().toString().equals("")) {
+            Toast.makeText(MainActivity.this, "Khong hop le", Toast.LENGTH_SHORT).show();
+        } else
+            result.setText(Double.parseDouble(soA.getText().toString()) / Double.parseDouble(soB.getText().toString()) + "");
+
+    }
+
+    public void phepTru(View view) {
+        if (soA.getText().toString().equals("") || soB.getText().toString().equals("")) {
+            Toast.makeText(MainActivity.this, "Khong hop le", Toast.LENGTH_SHORT).show();
+        } else
+            result.setText(Double.parseDouble(soA.getText().toString()) - Double.parseDouble(soB.getText().toString()) + "");
     }
 }
